@@ -1,0 +1,52 @@
+{
+  "name": "create-application",
+  "version": "1.0.0",
+  "description": "yemoan react scaffold",
+  "main": "index.js",
+  "files": [
+    "bin",
+    "app"
+  ],
+  "bin": {
+    "create-application": "./bin/cli.js"
+  },
+  "dependencies": {
+    "chalk": "4.0.0",
+    "clipboardy": "^2.3.0",
+    "commander": "^7.2.0",
+    "debug": "^4.1.1",
+    "execa": "^1.0.0",
+    "fs-extra": "^8.0.1",
+    "glob": "^7.1.4",
+    "inquirer": "^6.4.1",
+    "mkdirp": "^0.5.1",
+    "prettier": "^2.0.0",
+    "semver": "^6.1.0",
+    "sort-package-json": "^1.22.1",
+    "sylvanas": "^0.6.1",
+    "typescript": "^4.0.0",
+    "umi-utils": "^1.5.2",
+    "yargs-parser": "^13.1.1",
+    "yeoman-environment": "^2.8.0",
+    "yeoman-generator": "^4.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev":"node ./bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freeliujian/create-application.git"
+  },
+  "keywords": [
+    "yemoan",
+    "react",
+    "umi"
+  ],
+  "author": "jian.liu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freeliujian/create-application/issues"
+  },
+  "homepage": "https://github.com/freeliujian/create-application#readme"
+}
