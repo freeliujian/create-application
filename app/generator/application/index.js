@@ -1,7 +1,7 @@
 const Generator = require('yeoman-generator')
 const BasicGenerator = require('../../BasicGenerator')
 const {getNameByRepository} = require('../../utils')
-const {existsSync,readFileSync,rmSync} =require('fs')
+const {existsSync,readFileSync} =require('fs')
 
 module.exports = class Generator extends BasicGenerator {
   prompting() {
