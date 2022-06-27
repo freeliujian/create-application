@@ -10,9 +10,10 @@ program
 .parse(process.argv);
 
 if (!semver.satisfies(process.version, '>= 8.0.0')) {
-    console.error(chalk.red('✘ The generator will only work with Node v8.0.0 and up!'));
+    console.error(chalk.red("node 版本至少要大于8.0.0!"));
     process.exit(1);
 }
+
 const args = yParser(process.argv.slice(2));
 const name = args._[0] || '';
 const { type } = args;
