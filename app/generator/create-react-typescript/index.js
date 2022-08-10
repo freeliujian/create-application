@@ -1,7 +1,6 @@
 const Generator = require('yeoman-generator')
 const BasicGenerator = require('../../BasicGenerator')
-const {getNameByRepository} = require('../../utils')
-const {existsSync,readFileSync} =require('fs')
+const {getNameByRepository} = require('../../constants')
 
 module.exports = class Generator extends BasicGenerator {
   prompting() {
@@ -18,32 +17,7 @@ module.exports = class Generator extends BasicGenerator {
       },
     ])
       .then(props => {
-        let gitModules = []
-       
         const {name,moduleName,packageName} = getNameByRepository(props.repository)
-        try {
-          const gitModulesContent = readFileSync(this.destinationPath('.gitmodules'), {
-            encoding: 'utf-8',
-          });
-          
-          gitModules =
-            typeof gitModulesContent === 'string' &&
-            gitModulesContent
-              .split('\n')
-              .filter((i) => i.startsWith('[') && i.endsWith(']'))
-              .map((i) => i.split('/')[1].replace('"]', ''));
-              
-        } catch (e) {
-         
-          throw new Error('解析.gitmodules失败!');
-        }
-        if (
-          existsSync(this.destinationPath(this.perfix, moduleName)) ||
-          gitModules.indexOf(moduleName) > -1
-        ) {
-          throw new Error('该模块已存在');
-        }
-        
         this.props = {...props,name,moduleName,packageName}
       })
   }
@@ -59,14 +33,6 @@ module.exports = class Generator extends BasicGenerator {
   }
 
   writing() {
-    const {features} = this.props;
-    const isGulp = (file) => {
-      if(!features.includes('gulp')){
-        return file != 'gulpfile.js'
-      }else{
-        return true
-      }
-    }
-    this.writeFiles({context:this.props, filterFiles:isGulp})
+    this.writeFiles({context:this.props})
   }
 }

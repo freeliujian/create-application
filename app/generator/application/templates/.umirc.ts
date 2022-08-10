@@ -13,4 +13,17 @@ export default defineConfig({
       slave: {},
     },
   <% } %>
+
+  <%  if(features.includes('qiankun')){ -%>
+    extraBabelPlugins: [
+      [
+        'import',
+        {
+          libraryName: '@fengbeans/antd-waffle',
+          libraryDirectory: 'es',
+          style: true,
+        },
+      ],
+    ],
+  <% } %>
 });
