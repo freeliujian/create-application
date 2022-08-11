@@ -31,9 +31,6 @@
     "yeoman-generator": "^4.0.1"
   },
   "devDependencies": {},
-  "scripts": {
-    "dev":"node ./bin/cli.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/freeliujian/create-application.git"
