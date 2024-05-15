@@ -19,11 +19,9 @@ module.exports = class Generator extends BasicGenerator {
         type:'checkbox',
         name:'features',
         message:'请选择你你要安装的模块',
-        default:["qiankun","gulp","antd-waffle"],
+        default:["qiankun"],
         choices:[
           {name:'@umijs/plugin-qiankun',value:'qiankun'},
-          {name:"gulp",value:"gulp"},
-          {name:'@fengbeans/antd-waffle',value:'antd-waffle'},
         ]
       },
       {

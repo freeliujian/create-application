@@ -15,6 +15,17 @@ module.exports = class Generator extends BasicGenerator {
         default:'8000',
         message:'请输入的你端口号:（默认:8000)'
       },
+      {
+        type: 'checkbox',
+        name: 'features',
+        message: '请选择你你要安装的模块',
+        default: ["tailwind", "antd", "ahooks"],
+        choices: [
+          { name: 'tailwind', value: 'tailwind' },
+          { name: "antd", value: "antd" },
+          { name: 'ahooks', value: 'ahooks' },
+        ]
+      },
     ])
       .then(props => {
         const {name,moduleName,packageName} = getNameByRepository(props.repository)
@@ -23,7 +34,7 @@ module.exports = class Generator extends BasicGenerator {
   }
 
   default() {
-    console.log('clone submodule...');
+    console.log('clone...');
     const path =
       this.perfix.length > 0
         ? `${this.perfix}/${this.props.moduleName}`

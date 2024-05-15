@@ -1,19 +1,23 @@
 {
-  "name": "react-template",
+  "name": "<%= packageName %>",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite port= <%= envPort %>",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "jest"
   },
   "dependencies": {
+    <% if(features.includes('ahooks')){ -%>
     "ahooks": "^3.7.8",
+    <% } -%>
+    <% if(features.includes('antd')){ -%>
     "antd": "^5.12.8",
     "dayjs": "^1.11.9",
+    <% } -%>
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0"
@@ -43,7 +47,9 @@
     "jest": "^29.6.2",
     "jest-environment-jsdom": "^29.6.2",
     "postcss": "^8.4.28",
-    "tailwindcss": "^3.3.3",
+    <% if(features.includes('tailwind')){ -%>
+      "tailwindcss": "^3.3.3",
+    <% } -%>
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2",
     "vite": "^5.0.3"

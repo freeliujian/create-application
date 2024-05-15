@@ -3,17 +3,12 @@ import {
 	Link
 } from "react-router-dom";
 import Home from "../pages/home";
-import AntdDemo from "../pages/antd-demo";
 
 const router = createBrowserRouter(
   [
     {
       path: "/",
       element: <Home />,
-    },
-    {
-      path: "/antd-demo",
-      element: <AntdDemo />,
     },
     {
       path: "/about",
